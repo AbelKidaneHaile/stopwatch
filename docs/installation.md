@@ -1,38 +1,100 @@
 # Installation
 
-## Stable release
+## Install from PyPI
 
-To install stopwatch, run this command in your terminal:
+The **PyPI distribution** is named `advanced-stopwatch`:
 
-```sh
-uv add stopwatch
+=== "pip"
+
+    ```bash
+    python -m pip install advanced-stopwatch
+    ```
+
+=== "uv"
+
+    ```bash
+    uv add advanced-stopwatch
+    ```
+
+=== "Poetry"
+
+    ```bash
+    poetry add advanced-stopwatch
+    ```
+
+Python 3.12 or later is required. The runtime has no third-party dependencies.
+
+## Distribution name versus import name
+
+Only the installation name contains `advanced-`. Application code always imports `stopwatch`, and the installed CLI
+command is also `stopwatch`:
+
+```python
+from stopwatch import Duration, Stopwatch, TimerRegistry, timed, watch
 ```
 
-Or if you prefer to use `pip`:
-
-```sh
-pip install stopwatch
+```bash
+stopwatch --help
 ```
 
-## From source
+This split exists because the `stopwatch` project name was already occupied on PyPI:
 
-The source files for stopwatch can be downloaded from the [Github repo](https://github.com/AbelKidaneHaile/stopwatch).
+| Context | Name |
+| --- | --- |
+| PyPI page | `advanced-stopwatch` |
+| `pip`/`uv` dependency | `advanced-stopwatch` |
+| Python import | `stopwatch` |
+| CLI executable | `stopwatch` |
+| GitHub repository | `stopwatch` |
 
-You can either clone the public repository:
+## Verify the installation
 
-```sh
-git clone https://github.com/AbelKidaneHaile/stopwatch
+```bash
+python -c "import stopwatch; print(stopwatch.__version__)"
+stopwatch format 1500000ns
 ```
 
-Or download the [tarball](https://github.com/AbelKidaneHaile/stopwatch/tarball/main):
+Expected output:
 
-```sh
-curl -OJL https://github.com/AbelKidaneHaile/stopwatch/tarball/main
+```text
+0.1.0
+1.5 ms
 ```
 
-Once you have a copy of the source, you can install it with:
+## Install from source
 
-```sh
+Clone the repository and synchronize its development environment:
+
+```bash
+git clone https://github.com/AbelKidaneHaile/stopwatch.git
 cd stopwatch
 uv sync
+```
+
+Run the test suite:
+
+```bash
+uv run pytest
+```
+
+To install the checkout into another environment:
+
+```bash
+python -m pip install .
+```
+
+The source build still creates an `advanced-stopwatch` distribution containing the `stopwatch` import package.
+
+## Upgrade or uninstall
+
+```bash
+python -m pip install --upgrade advanced-stopwatch
+python -m pip uninstall advanced-stopwatch
+```
+
+With uv:
+
+```bash
+uv lock --upgrade-package advanced-stopwatch
+uv remove advanced-stopwatch
 ```

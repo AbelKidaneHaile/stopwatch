@@ -1,8 +1,10 @@
 # stopwatch
 
-[![PyPI](https://img.shields.io/pypi/v/stopwatch.svg)](https://pypi.org/project/stopwatch/)
-[![Python](https://img.shields.io/pypi/pyversions/stopwatch.svg)](https://pypi.org/project/stopwatch/)
+[![PyPI](https://img.shields.io/pypi/v/advanced-stopwatch.svg)](https://pypi.org/project/advanced-stopwatch/)
+[![Python](https://img.shields.io/pypi/pyversions/advanced-stopwatch.svg)](https://pypi.org/project/advanced-stopwatch/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+**Documentation:** <https://abelkidanehaile.github.io/stopwatch/>
 
 Precise, structured timing for Python—from one block of code to application-wide performance instrumentation.
 
@@ -19,20 +21,23 @@ microbenchmarks and a profiler when you need to discover unknown hotspots.
 Install the published package from PyPI:
 
 ```bash
-python -m pip install stopwatch
+python -m pip install advanced-stopwatch
 ```
 
 With [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv add stopwatch
+uv add advanced-stopwatch
 ```
 
 Python 3.12 or newer is required. The runtime package has no third-party dependencies.
 
-> The `stopwatch` project name may already be occupied on PyPI. Verify ownership and name availability before
-> publishing this repository. If the distribution is renamed, update the installation command; the documented import
-> name remains `stopwatch` unless the package itself is also renamed.
+The PyPI distribution is named `advanced-stopwatch` because the `stopwatch` project name is already occupied. After
+installation, the import package and command-line executable are both simply `stopwatch`:
+
+```python
+import stopwatch
+```
 
 ## Quick start
 
@@ -447,7 +452,7 @@ uv run ty check
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines and [SECURITY.md](SECURITY.md) for responsible
-disclosure. Documentation is published at <https://AbelKidaneHaile.github.io/stopwatch/>.
+disclosure. Documentation is published at <https://abelkidanehaile.github.io/stopwatch/>.
 
 ## License
 

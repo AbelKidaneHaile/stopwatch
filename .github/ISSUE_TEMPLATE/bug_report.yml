@@ -16,7 +16,7 @@ body:
       label: Steps to reproduce
       description: Minimal steps to trigger the bug.
       placeholder: |
-        1. Install with `uv pip install stopwatch`
+        1. Install with `uv pip install advanced-stopwatch`
         2. Run `...`
         3. See error
     validations:

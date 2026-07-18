@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "stopwatch"
+name = "advanced-stopwatch"
 version = "0.1.0"
 description = "Precise, structured timing for Python applications."
 readme = "README.md"
@@ -46,11 +46,16 @@ docs = [
 [project.urls]
 bugs = "https://github.com/AbelKidaneHaile/stopwatch/issues"
 changelog = "https://github.com/AbelKidaneHaile/stopwatch/releases"
-documentation = "https://AbelKidaneHaile.github.io/stopwatch/"
+documentation = "https://abelkidanehaile.github.io/stopwatch/"
 homepage = "https://github.com/AbelKidaneHaile/stopwatch"
 
 [project.scripts]
 stopwatch = "stopwatch.cli:main"
+
+[tool.hatch.build.targets.wheel]
+# The PyPI distribution is named advanced-stopwatch, while the public Python
+# import intentionally remains `stopwatch`.
+packages = ["src/stopwatch"]
 
 [tool.ty]
 # All rules are enabled as "error" by default; no need to specify unless overriding.
