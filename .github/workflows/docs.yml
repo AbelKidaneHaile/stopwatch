@@ -6,7 +6,10 @@ on:
     branches:
       - main
 
-permissions: {}
+# All jobs can read the repository; write capabilities are scoped below to the
+# individual jobs that need them.
+permissions:
+  contents: read
 
 concurrency:
   group: docs-deploy
@@ -19,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pages: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -30,6 +34,8 @@ jobs:
         run: uv run --group docs zensical build --clean
 
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:

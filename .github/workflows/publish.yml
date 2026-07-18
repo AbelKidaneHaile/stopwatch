@@ -5,7 +5,8 @@ on:
     tags:
       - "v*"
 
-permissions: {}
+permissions:
+  contents: read
 
 concurrency:
   group: publish
@@ -38,6 +39,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       id-token: write
       attestations: write
     # Requires environment protection rules in GitHub Settings:
